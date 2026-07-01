@@ -18,7 +18,7 @@ public class UserController {
 	private UserService service;
 	
 	@GetMapping("/git")
-	public String homePage() {
+	public String gitPage() {
 		return "home";
 	}
 	
