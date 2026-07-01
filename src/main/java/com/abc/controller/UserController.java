@@ -17,6 +17,11 @@ public class UserController {
 	@Autowired
 	private UserService service;
 	
+	@GetMapping("/git")
+	public String homePage() {
+		return "home";
+	}
+	
 	@GetMapping("/")
 	public String homePage() {
 		return "home";
