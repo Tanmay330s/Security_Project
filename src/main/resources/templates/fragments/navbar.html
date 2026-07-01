@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <!-- You can keep Bootstrap links here or in your main layout -->
+</head>
+<body>
+  <div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/}">Megatronics</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/contactus}">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/product}">Product</a></li>
+			<!--only visible to admin and superadmin-->
+            <li class="nav-item"><a class="nav-link" th:href="@{/admin}" sec:authorize="hasAnyAuthority('admin','superadmin')">Admin Dashboard</a></li>
+			<!--only visible to superadmin-->
+            <li class="nav-item"><a class="nav-link" th:href="@{/super}" sec:authorize="hasAuthority('superadmin')">Super Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" th:href="@{/signup}">Signup</a></li>
+			<!--if the user is not authonticated this is show -->
+			<li class="nav-item"><a class="nav-link" th:href="@{/login}" sec:authorize="!isAuthenticated()">Login</a></li>
+			<!--if the user is authonticated this is show-->
+			<li class="nav-item" sec:authorize="isAuthenticated()">
+				<form th:action="@{/logout}" method="post">
+					<input type="submit" value="logout" class="nav-link"/>
+				</form>
+			</li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</body>
+</html>
