@@ -9,5 +9,5 @@ class ThymeleafWithSecurityApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
+	String name = "Tanmay";
 }
