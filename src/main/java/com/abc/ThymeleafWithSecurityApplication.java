@@ -8,6 +8,7 @@ public class ThymeleafWithSecurityApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ThymeleafWithSecurityApplication.class, args);
+		int i = 10;
 	}
 
 }
