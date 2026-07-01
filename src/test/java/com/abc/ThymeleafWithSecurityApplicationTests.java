@@ -9,5 +9,6 @@ class ThymeleafWithSecurityApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+	int i=10;
 
 }
