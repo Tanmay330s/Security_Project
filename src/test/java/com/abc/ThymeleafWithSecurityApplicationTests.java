@@ -13,5 +13,6 @@ class ThymeleafWithSecurityApplicationTests {
 	int i=10;
 
 	String name = "Tanmay";
+	int i=100;
 
 }
